@@ -1,7 +1,9 @@
 pipeline
 {
     agent {label'new-label'} 
-    
+     environment{
+        PATH="/usr/share/maven:$PATH"
+    }
     stages
     {
      
