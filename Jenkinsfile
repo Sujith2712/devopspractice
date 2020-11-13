@@ -1,5 +1,6 @@
 pipeline {
-    agent any
+   agent any
+   boolean MASTER_BRANCH=true
 
     stages {
         stage('test') {
@@ -7,20 +8,18 @@ pipeline {
                 sh 'echo hello'
             }
         }
+        script{
+            if (MASTER_BRANCH){
+                sh 'echo master branch'
+        }
+            else{
+                 sh 'echo   not master branch'
+            }
+        }
+       
         stage('test1') {
             steps {
                 sh 'echo $TEST'
-            }
-        }
-        stage('test3') {
-            steps {
-                script {
-                    if (env.BRANCH_NAME == 'master') {
-                        echo 'I only execute on the master branch'
-                    } else{
-                        echo 'I execute on annother branch'
-                    }
-                }
             }
         }
     }
