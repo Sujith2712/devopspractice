@@ -6,15 +6,10 @@ pipeline {
                 sh 'echo hello'
             }
         }
-        stage('test1') {
-            steps {
-                sh 'echo $TEST'
-            }
-        }
-        stage('test3') {
+           stage('test3') {
             steps {
                 script {
-                    if (env.BRANCH_NAME == 'master') {
+                    if (env.BRANCH_NAME == 'suji') {
                         echo 'I only execute on the master branch'
                     } else{
                         echo 'I execute on annother branch'
@@ -22,5 +17,11 @@ pipeline {
                 }
             }
         }
+        stage('test1') {
+            steps {
+                sh 'echo $TEST'
+            }
+        }
+       
     }
 }
