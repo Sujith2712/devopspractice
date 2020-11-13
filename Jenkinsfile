@@ -1,27 +1,27 @@
-pipeline{
+pipeline {
     agent any
-    environment{
-        PATH="/usr/share/maven:$PATH"
+
+    stages {
+        stage('test') {
+            steps {
+                sh 'echo hello'
+            }
+        }
+        stage('test1') {
+            steps {
+                sh 'echo $TEST'
+            }
+        }
+        stage('test3') {
+            steps {
+                script {
+                    if (env.BRANCH_NAME == 'master') {
+                        echo 'I only execute on the master branch'
+                    } else {
+                        echo 'I execute elsewhere'
+                    }
+                }
+            }
+        }
     }
-   stages {
-    stage ('pulling code from github')
-    {
-        steps{
-          git credentialsId: 'pipeline12', url: 'https://github.com/RavitejaAdepudi/javawar.git'
-        }
-        
-        }
-        stage ('build')
-        {
-        steps {
-            sh 'mvn clean install'
-        }
-    }
-       stage ('test')
-        {
-        steps {
-            sh 'mvn test'
-        }
-    }
-}
 }
