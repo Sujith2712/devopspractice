@@ -17,7 +17,7 @@ pipeline {
                 script {
                     if (env.BRANCH_NAME == 'master') {
                         echo 'I only execute on the master branch'
-                    } else (env.BRANCH_NAME == 'suji') {
+                    } else{
                         echo 'I execute on annother branch'
                     }
                 }
