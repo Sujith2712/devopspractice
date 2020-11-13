@@ -1,8 +1,6 @@
 pipeline {
    agent any
-   boolean MASTER_BRANCH=true
-
-    stages {
+       stages {
         stage('test') {
             steps {
                 sh 'echo hello'
