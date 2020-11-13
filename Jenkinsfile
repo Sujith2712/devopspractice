@@ -8,14 +8,18 @@ pipeline {
                 sh 'echo hello'
             }
         }
-        script{
-            if (MASTER_BRANCH){
-                sh 'echo master branch'
-        }
-            else{
-                 sh 'echo   not master branch'
+       stage('test3'){
+         steps{
+           script{
+                  if (MASTER_BRANCH){
+                      sh 'echo master branch'
+                     }
+                  else{
+                       sh 'echo   not master branch'
+                  }
+               }
             }
-        }
+       }
        
         stage('test1') {
             steps {
