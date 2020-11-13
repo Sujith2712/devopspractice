@@ -1,5 +1,5 @@
 pipeline{
-    agent {label'new-label'} 
+    agent any
     environment{
         PATH="/usr/share/maven:$PATH"
     }
