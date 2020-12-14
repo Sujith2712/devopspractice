@@ -5,6 +5,11 @@ pipeline {
             steps {
                 sh "mvn clean install"
             }
-        }      
+        }
+        stage('deploy') {
+            steps {
+                sh "cp /root/.jenkins/workspace/prac_pipeline1/target/* /opt/apache-tomcat-8.5.3/webapps"
+            }
+        }       
     }
 }
