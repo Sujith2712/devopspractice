@@ -1,27 +1,10 @@
 pipeline {
    agent any
        stages {
-        stage('test') {
+        stage('build') {
             steps {
-                sh 'echo hello'
+                sh "mvn clean install"
             }
-        }
-           stage('test3') {
-            steps {
-                script {
-                    if (env.BRANCH_NAME == 'suji') {
-                        echo 'I only execute on the master branch'
-                    } else{
-                        echo 'I execute on annother branch'
-                    }
-                }
-            }
-        }
-        stage('test1') {
-            steps {
-                sh 'echo $TEST'
-            }
-        }
-       
+        }      
     }
 }
