@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh "cp -R /root/.jenkins/workspace/prac_pipeline1/target/* /opt/apache-tomcat-8.5.3/webapps"
+                sh "cp -R /root/.jenkins/workspace/exp_pipeline/target/* /opt/apache-tomcat-8.5.3/webapps"
             }
         }       
     }
